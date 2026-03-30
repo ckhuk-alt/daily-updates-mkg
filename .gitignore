@@ -12,8 +12,9 @@ data/email_draft.json
 # Email HTML fallbacks (sensitive — not for repo)
 output/email/
 
-# Blog HTML (large, regenerated each run; .md and index.json are tracked)
-output/blog/*.html
+# Email-format HTML (large, email-client-specific; not needed in repo)
+# -web.html (public web article) and .md files ARE tracked
+output/blog/*-sem-intel-digest.html
 
 logs/
 .env

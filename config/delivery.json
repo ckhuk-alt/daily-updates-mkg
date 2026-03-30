@@ -5,7 +5,7 @@
   },
   "google_chat": {
     "enabled": true,
-    "webhook_url": "${GOOGLE_CHAT_WEBHOOK_URL}"
+    "webhook_url": "https://chat.googleapis.com/v1/spaces/AAQAMsmBwTI/messages?key=AIzaSyDdI0hCZtE6vySjMm-WEfRq3CPzqKqqsHI&token=6BN01ELuuFgdv_kxlfq5cY-NfiD9BbY-DMLLfwMQeo0"
   },
   "blog": {
     "enabled": true,

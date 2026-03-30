@@ -23,6 +23,7 @@ const { runScraper } = require('./scraper/index');
 const { buildChatCard, postToGoogleChat, buildTestCard } = require('./webhook/google-chat');
 const { generateMarkdownPost } = require('./blog/markdown');
 const { generateHtmlEmail } = require('./blog/html');
+const { generateWebArticle } = require('./blog/web-article');
 const { upsertIndexEntry } = require('./blog/index-builder');
 const { publishToWordPress } = require('./blog/cms/wordpress');
 const { publishToGhost } = require('./blog/cms/ghost');
@@ -212,15 +213,19 @@ async function deliver() {
     logger.info('Step 6: Generating blog post');
     const mdContent = generateMarkdownPost(scoredArticles, runMeta);
     const htmlContent = generateHtmlEmail(scoredArticles, runMeta, { maxWidth: 800, isEmail: false });
+    const webContent = generateWebArticle(scoredArticles, runMeta);
 
     const mdFile = `${runMeta.date}-sem-intel-digest.md`;
     const htmlFile = `${runMeta.date}-sem-intel-digest.html`;
+    const webFile = `${runMeta.date}-sem-intel-digest-web.html`;
     const mdPath = path.join(OUTPUT_BLOG_DIR, mdFile);
     const htmlPath = path.join(OUTPUT_BLOG_DIR, htmlFile);
+    const webPath = path.join(OUTPUT_BLOG_DIR, webFile);
 
     fs.writeFileSync(mdPath, mdContent);
     fs.writeFileSync(htmlPath, htmlContent);
-    logger.info({ mdPath, htmlPath }, 'Blog files written');
+    fs.writeFileSync(webPath, webContent);
+    logger.info({ mdPath, htmlPath, webPath }, 'Blog files written');
 
     upsertIndexEntry(OUTPUT_BLOG_DIR, {
       date: runMeta.date,
@@ -229,6 +234,7 @@ async function deliver() {
       articleCount: scoredArticles.length,
       mdFile,
       htmlFile,
+      webFile,
       summary: scoredArticles.length > 0 ? scoredArticles[0].headline : 'No significant news today.'
     });
 
