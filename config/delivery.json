@@ -1,0 +1,21 @@
+{
+  "email": {
+    "enabled": true,
+    "to": "c_khuk@groupon.com"
+  },
+  "google_chat": {
+    "enabled": true,
+    "webhook_url": "${GOOGLE_CHAT_WEBHOOK_URL}"
+  },
+  "blog": {
+    "enabled": true,
+    "output_dir": "output/blog",
+    "format": "markdown",
+    "cms": {
+      "enabled": false,
+      "type": "wordpress",
+      "api_url": "",
+      "auth_token": "${CMS_AUTH_TOKEN}"
+    }
+  }
+}

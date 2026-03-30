@@ -1,0 +1,26 @@
+{
+  "name": "sem-intel-agent",
+  "version": "1.0.0",
+  "description": "Daily SEM/PPC news scraping and digest agent",
+  "type": "commonjs",
+  "main": "src/index.js",
+  "scripts": {
+    "start": "node src/index.js",
+    "scrape-only": "node src/index.js --scrape-only",
+    "sources": "node src/index.js --sources",
+    "webhook-test": "node src/index.js --webhook-test",
+    "stats": "node src/index.js --stats",
+    "dry-run": "node src/index.js --dry-run"
+  },
+  "dependencies": {
+    "axios": "^1.7.2",
+    "better-sqlite3": "^9.6.0",
+    "cheerio": "^1.0.0",
+    "pino": "^9.3.2",
+    "pino-pretty": "^11.2.1",
+    "rss-parser": "^3.13.0"
+  },
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

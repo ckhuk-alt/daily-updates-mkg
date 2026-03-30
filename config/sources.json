@@ -1,0 +1,161 @@
+{
+  "sources": [
+    {
+      "id": "google-ads-blog",
+      "name": "Google Ads Blog",
+      "url": "https://blog.google/products/ads-commerce/rss/",
+      "method": "rss",
+      "tier": 1,
+      "enabled": true
+    },
+    {
+      "id": "google-ads-developer-blog",
+      "name": "Google Ads Developer Blog",
+      "url": "https://ads-developers.googleblog.com/feeds/posts/default",
+      "method": "rss",
+      "tier": 1,
+      "enabled": true
+    },
+    {
+      "id": "google-merchant-center-blog",
+      "name": "Google Merchant Center Blog",
+      "url": "https://blog.google/products/shopping/rss/",
+      "method": "rss",
+      "tier": 1,
+      "enabled": true
+    },
+    {
+      "id": "microsoft-advertising-blog",
+      "name": "Microsoft Advertising Blog",
+      "url": "https://about.ads.microsoft.com/en-us/blog/rss",
+      "method": "rss",
+      "tier": 1,
+      "enabled": true
+    },
+    {
+      "id": "google-search-central-blog",
+      "name": "Google Search Central Blog",
+      "url": "https://developers.google.com/search/blog/atom.xml",
+      "method": "rss",
+      "tier": 1,
+      "enabled": true
+    },
+    {
+      "id": "search-engine-land",
+      "name": "Search Engine Land",
+      "url": "https://searchengineland.com/feed",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "search-engine-journal",
+      "name": "Search Engine Journal",
+      "url": "https://www.searchenginejournal.com/feed/",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "ppc-hero",
+      "name": "PPC Hero",
+      "url": "https://www.ppchero.com/feed/",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "wordstream-blog",
+      "name": "WordStream Blog",
+      "url": "https://www.wordstream.com/blog/feed",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "optmyzr-blog",
+      "name": "Optmyzr Blog",
+      "url": "https://www.optmyzr.com/blog/feed/",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "adalysis-blog",
+      "name": "Adalysis Blog",
+      "url": "https://adalysis.com/blog/feed/",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "bgtheory-brad-geddes",
+      "name": "Brad Geddes (BGTheory)",
+      "url": "https://www.bgtheory.com/feed",
+      "method": "rss",
+      "tier": 3,
+      "enabled": true
+    },
+    {
+      "id": "mikerhodes-blog",
+      "name": "Mike Rhodes Blog",
+      "url": "https://www.mikerhodes.com.au/blog",
+      "method": "html",
+      "tier": 3,
+      "enabled": true,
+      "selectors": {
+        "articles": "article, .post, .blog-post",
+        "title": "h2, h1, .post-title",
+        "link": "a",
+        "date": "time, .date, .post-date",
+        "snippet": "p, .excerpt, .post-excerpt"
+      }
+    },
+    {
+      "id": "zato-kirk-williams",
+      "name": "Kirk Williams (ZATO)",
+      "url": "https://www.zatoworks.com/blog/",
+      "method": "html",
+      "tier": 3,
+      "enabled": true,
+      "selectors": {
+        "articles": "article, .post",
+        "title": "h2, h1",
+        "link": "a",
+        "date": "time, .date",
+        "snippet": "p, .excerpt"
+      }
+    },
+    {
+      "id": "ginny-marvin-nitter",
+      "name": "Ginny Marvin (X/Twitter)",
+      "url": "https://nitter.net/GinnyMarvin/rss",
+      "method": "rss",
+      "tier": 3,
+      "enabled": true
+    },
+    {
+      "id": "ppc-chat-nitter",
+      "name": "PPC Chat (X/Twitter)",
+      "url": "https://nitter.net/PPCChat/rss",
+      "method": "rss",
+      "tier": 4,
+      "enabled": true
+    },
+    {
+      "id": "paid-search-association",
+      "name": "Paid Search Association",
+      "url": "https://www.paidsearchassociation.com/",
+      "method": "html",
+      "tier": 4,
+      "enabled": true,
+      "selectors": {
+        "articles": "article, .post, .entry",
+        "title": "h2, h1, .entry-title",
+        "link": "a",
+        "date": "time, .date",
+        "snippet": "p, .excerpt"
+      }
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+node_modules/
+data/articles.db
+data/scraped_articles.json
+data/new_articles.json
+data/scored_articles.json
+output/blog/*.html
+logs/
+.env
+*.log

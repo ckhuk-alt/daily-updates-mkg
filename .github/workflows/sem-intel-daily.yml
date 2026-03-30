@@ -1,0 +1,74 @@
+name: SEM Intel Daily Digest
+
+on:
+  schedule:
+    - cron: '0 5 * * *'   # 5:00 UTC = 7:00 CET
+  workflow_dispatch:        # allow manual trigger from GitHub UI
+
+jobs:
+  run-digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      # Restore SQLite DB from cache so dedup history persists across runs
+      - name: Restore articles DB cache
+        uses: actions/cache@v4
+        with:
+          path: data/articles.db
+          key: articles-db-${{ github.run_id }}
+          restore-keys: |
+            articles-db-
+
+      - name: Ensure data directory exists
+        run: mkdir -p data output/blog output/email logs
+
+      # Phase 1: Scrape + Dedup (Node.js)
+      - name: Run scraper and dedup
+        run: node src/index.js
+        env:
+          GOOGLE_CHAT_WEBHOOK_URL: ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
+
+      # Phase 2 + 3: Score, summarize, and deliver (Claude Code)
+      - name: Run Claude Code scoring and delivery
+        run: |
+          claude --dangerously-skip-permissions -p \
+            "Execute the SEM Intel Agent scoring and delivery pipeline as described in CLAUDE.md. \
+             Read data/new_articles.json, score and summarize each article, write data/scored_articles.json, \
+             then run 'node src/index.js --deliver' to complete delivery. \
+             Finally, read data/email_draft.json and create a Gmail draft using the Gmail MCP tool."
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          GOOGLE_CHAT_WEBHOOK_URL: ${{ secrets.GOOGLE_CHAT_WEBHOOK_URL }}
+
+      # Commit blog output back to repo
+      - name: Commit blog output
+        run: |
+          git config user.name "SEM Intel Agent"
+          git config user.email "sem-intel-agent@noreply.github.com"
+          git add output/blog/ || true
+          git diff --staged --quiet || git commit -m "chore: SEM Intel Digest — $(date +%Y-%m-%d)"
+          git push || true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+
+      # Upload logs as artifact for debugging
+      - name: Upload logs
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: sem-intel-logs-${{ github.run_id }}
+          path: logs/
+          retention-days: 14
