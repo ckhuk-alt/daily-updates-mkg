@@ -1,9 +1,20 @@
 node_modules/
+
+# Transient data files (generated each run)
 data/articles.db
+data/articles.db-shm
+data/articles.db-wal
 data/scraped_articles.json
 data/new_articles.json
 data/scored_articles.json
+data/email_draft.json
+
+# Email HTML fallbacks (sensitive — not for repo)
+output/email/
+
+# Blog HTML (large, regenerated each run; .md and index.json are tracked)
 output/blog/*.html
+
 logs/
 .env
 *.log
