@@ -156,6 +156,62 @@
         "date": "time, .date",
         "snippet": "p, .excerpt"
       }
+    },
+    {
+      "id": "gnews-google-ads",
+      "name": "Google News: Google Ads",
+      "url": "https://news.google.com/rss/search?q=Google+Ads+update+OR+feature+OR+campaign&hl=en-US&gl=US&ceid=US:en",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "gnews-performance-max",
+      "name": "Google News: Performance Max",
+      "url": "https://news.google.com/rss/search?q=%22Performance+Max%22+OR+%22PMax%22+Google+Ads&hl=en-US&gl=US&ceid=US:en",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "gnews-microsoft-ads",
+      "name": "Google News: Microsoft Advertising",
+      "url": "https://news.google.com/rss/search?q=%22Microsoft+Advertising%22+OR+%22Bing+Ads%22+update+OR+feature&hl=en-US&gl=US&ceid=US:en",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "gnews-smart-bidding",
+      "name": "Google News: Smart Bidding & Automation",
+      "url": "https://news.google.com/rss/search?q=%22Smart+Bidding%22+OR+%22Target+ROAS%22+OR+%22Target+CPA%22+Google+Ads&hl=en-US&gl=US&ceid=US:en",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "gnews-ppc-news",
+      "name": "Google News: PPC & Paid Search",
+      "url": "https://news.google.com/rss/search?q=PPC+%22paid+search%22+advertising+update+2026&hl=en-US&gl=US&ceid=US:en",
+      "method": "rss",
+      "tier": 3,
+      "enabled": true
+    },
+    {
+      "id": "gnews-shopping-ads",
+      "name": "Google News: Shopping & Merchant Center",
+      "url": "https://news.google.com/rss/search?q=%22Google+Shopping%22+OR+%22Merchant+Center%22+ads+update&hl=en-US&gl=US&ceid=US:en",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
+    },
+    {
+      "id": "gnews-ai-ads",
+      "name": "Google News: AI in Advertising",
+      "url": "https://news.google.com/rss/search?q=%22AI+Overview%22+OR+%22generative+AI%22+%22Google+Ads%22+OR+%22search+ads%22&hl=en-US&gl=US&ceid=US:en",
+      "method": "rss",
+      "tier": 2,
+      "enabled": true
     }
   ]
 }
